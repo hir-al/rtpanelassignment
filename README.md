@@ -1,4 +1,5 @@
 rtpanelassignment
 =================
 
-First repository for rtpanel assignment
+Complex PSD to WordPress Theme Assignment
+TODO: Add more description here. 
