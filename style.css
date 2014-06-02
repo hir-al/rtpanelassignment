@@ -26,6 +26,7 @@ body {
 background:#fff;
 color:#4c4c4c;
 font-family: Arial, Georgia, Serif;
+font-size: 13px;
 font-weight:400;
 font-style:normal;
 position:relative;
@@ -1458,12 +1459,7 @@ display:inline-block;
 }
 
 .panel {
-margin-bottom:1.25rem;
-background:#f2f2f2;
-border-color:#f4f4f4;
-border-style:solid;
-border-width:1px;
-padding:1.25rem;
+
 }
 
 .panel.callout {
@@ -2382,8 +2378,8 @@ padding:8px 15px 2px;
 }
 
 a:hover,a:focus {
-color:#eb5b4c;
-text-decoration:underline;
+color: #044E8E;
+text-decoration: underline;
 }
 
 a img {
@@ -2456,7 +2452,6 @@ color:#ac231d;
 }
 
 ul,ol,dl {
-font-size:1rem;
 line-height:inherit;
 margin-bottom:1.75rem;
 list-style-position:outside;
@@ -2477,7 +2472,6 @@ list-style:none;
 ul li ul,ul li ol {
 margin-left:1.25rem;
 margin-bottom:0;
-font-size:1rem;
 }
 
 ul.square li ul,ul.circle li ul,ul.disc li ul {
@@ -4378,7 +4372,7 @@ width:40.063em;
 }
 
 html,body,.bbpress #bbpress-forums,.bbpress #bbpress-forums ul.bbp-lead-topic,.bbpress #bbpress-forums ul.bbp-topics,.bbpress #bbpress-forums ul.bbp-forums,.bbpress #bbpress-forums ul.bbp-replies {
-font-size:100%;
+/*font-size:100%;*/
 }
 
 a:hover,div.switch input:hover,div.switch input:focus {
@@ -4723,7 +4717,6 @@ font-size:.875rem;
 }
 
 ul,ol {
-margin-left:2rem;
 }
 
 dl dd,.gform_fields .gfield {
@@ -6590,7 +6583,96 @@ display:block;
 margin-left:-.125rem;
 }
 }
+/* Start Custom CSS */
+.panel-grid  h3.widget-title{
+display:none;
+}
 
+.panel-grid-cell{	
+padding:0 !important;
+}
+
+.panel-grid{
+margin:0 !important;
+}
+
+.rtp-portfolio-container{
+width:100%; 
+}
+
+.rtp-portfolio-container .single-portfolio{
+display:inline-block;
+}
+
+.rtp-portfolio-container .portfolio-image img{ 
+border:4px solid #CAC4B4;
+}
+
+.rtp-portfolio-container  .single-portfolio{
+margin:0 5px;
+}
+
+.rtp-portfolio-container  .single-portfolio.first {
+margin-left: 0;
+}
+
+.rtp-portfolio-container  .single-portfolio.last {
+margin-right: 0;
+}
+
+h3.title{
+background-color: #F4EEDE;
+border-left: 7px solid #E6C36E;
+color: #333333;
+font-family: DroidSerif;
+font-size: 16px;
+font-weight: bold;
+padding: 5px 10px;
+position: relative;
+}
+
+/* News */
+
+.sticky-image img {
+border: 4px solid #CAC4B4;
+}
+.sticky-title > a {
+color: #333333;
+font-weight: 700;
+}
+.sticky-post {
+display:table;
+margin:15px 0 10px;
+}
+.sticky-image, .sticky-title{
+display: table-cell;
+line-height: 19px;
+vertical-align: top;
+}
+.sticky-image{
+padding-right:10px;
+}
+.rtp-news-container .read-more{
+float: right;
+}
+
+ul li.list {
+position:relative;
+padding-left:15px; 
+list-style:none;
+}
+
+ul li.list:before{
+background: url("img/sprite.jpg") no-repeat scroll 1px -374px transparent;
+content: "";
+height: 15px;
+left: 0;
+position: absolute;
+top: 8px;
+width: 10px;
+}
+
+/* End Custom CSS */
 @media print{
 .reveal-modal {
 background:#fff!important;

@@ -49,3 +49,8 @@ foreach( glob ( get_template_directory() . "/lib/*.php" ) as $lib_filename ) {
 
 /* Includes rtPanel Theme Options */
 require_once( get_template_directory() . "/admin/rtp-theme-options.php" );
+
+/* Includes Custom Posts located in 'custom-posts' folder */
+foreach( glob ( get_template_directory() . "/custom-posts/*.php" ) as $custom_posts_filename ) {
+    require_once( $custom_posts_filename );
+}
