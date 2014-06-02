@@ -54,3 +54,8 @@ require_once( get_template_directory() . "/admin/rtp-theme-options.php" );
 foreach( glob ( get_template_directory() . "/custom-posts/*.php" ) as $custom_posts_filename ) {
     require_once( $custom_posts_filename );
 }
+
+/* Includes Custom Posts located in 'custom-posts' folder */
+foreach( glob ( get_template_directory() . "/widgets/*.php" ) as $custom_posts_filename ) {
+    require_once( $custom_posts_filename );
+}

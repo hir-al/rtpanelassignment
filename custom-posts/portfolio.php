@@ -28,10 +28,3 @@ function portfolio_theme_custom_posts(){
 	register_post_type('portfolio',$args);	
 }
 add_filter('init', 'portfolio_theme_custom_posts' );
-
-function tm_flush_rewrite_rules_faq() 
-{
-	global $wp_rewrite;
-	$wp_rewrite->flush_rules();
-}
-add_action('admin_init', 'tm_flush_rewrite_rules_faq');

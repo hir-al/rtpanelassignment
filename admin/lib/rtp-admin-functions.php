@@ -533,7 +533,9 @@ function rtp_general_validate($input) {
 
         foreach ($options as $option => $value)
             $input[$option] = $value;
-
+		$input['first_footer_sidebar'] = $default[0]['first_footer_sidebar'];
+		$input['second_footer_sidebar'] = $default[0]['second_footer_sidebar'];
+		$input['third_footer_sidebar'] = $default[0]['third_footer_sidebar'];
         $input['footer_sidebar'] = $default[0]['footer_sidebar'];
         $input['buddypress_sidebar'] = $default[0]['buddypress_sidebar'];
         $input['bbpress_sidebar'] = $default[0]['bbpress_sidebar'];
@@ -819,6 +821,9 @@ function rtp_theme_setup_values() {
         'favicon_use' => 'disable',
         'favicon_upload' => RTP_IMG_FOLDER_URL . '/favicon.ico',
         'favicon_id' => 0,
+		'first_footer_sidebar' => '0',
+		'second_footer_sidebar' => '0',
+		'third_footer_sidebar' => '0',
         'footer_sidebar' => '0',
         'buddypress_sidebar' => 'default-sidebar',
         'bbpress_sidebar' => 'default-sidebar',
@@ -1111,8 +1116,10 @@ function rtp_theme_options_help() {
     $general_help .= __( '<strong>Google Custom Search Integration:</strong> This option would enable you to harness the power of Google Search instead of the default WordPress search by specifying the Google Custom Search Code.  You also have the option of rendering the Google Search Page without the sidebar.', 'rtPanel' );
     $general_help .= '</p><p>';
     $general_help .= __( '<strong>Sidebar Settings:</strong> Enable / Disable the Footer Sidebar from here.', 'rtPanel' );
-    $general_help .= '</p><p>';
+     $general_help .= '</p><p>';
     $general_help .= __( '<strong>Custom Styles:</strong> You can specify your own CSS styles in this option to override the default Style.', 'rtPanel' );
+	$general_help .= '</p><p>';
+    $general_help .= __( '<strong>Image Slider:</strong> You can specify your own Image slider in this option.', 'rtPanel' );
     $general_help .= '</p><p>';
     $general_help .= __( '<strong>Plugin Support:</strong> You will get a summary of plugins\' status that are supported by rtPanel. This information box will allow you to manipulate the plugin settings on the fly.', 'rtPanel' );
     $general_help .= '</p><p>';

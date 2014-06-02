@@ -24,7 +24,7 @@ font-family:sans-serif;
 
 body {
 background:#fff;
-color:#4c4c4c;
+color:#333333;
 font-family: Arial, Georgia, Serif;
 font-size: 13px;
 font-weight:400;
@@ -2934,15 +2934,10 @@ overflow-x:hidden;
 }
 
 .rtp-site-logo {
-float:left;
-font-size:2.5rem;
-overflow:hidden;
-margin:0 1.875rem 0 0;
+
 }
 
 .rtp-site-logo img {
-float:left;
-margin:0;
 }
 
 .tagline {
@@ -2978,8 +2973,28 @@ left:100%;
 float:left;
 list-style:none;
 position:relative;
-}
 
+}
+.rtp-secondary-nav-container li {
+line-height:15px;
+}
+.rtp-secondary-nav-container li + li::before,
+.links-list li + li::before {
+    content: " | ";
+	padding: 0 2px 0 5px;
+}
+.links-list li + li::before {
+padding: 0 2px;
+}
+.header-search-widget{
+clear:both;
+float:right;
+margin-top:40px;
+width:100%;
+}
+.rtp-footer-main .widgets-image {
+margin: 10px 0 50px;
+}
 .rtp-nav-container>li:first-child {
 }
 
@@ -3144,7 +3159,7 @@ background:#f2f2f2;
 border-color:#d9d9d9;
 border-style:solid;
 border-width:1px;
-padding:1.25rem;
+padding:1.25rem!important;
 }
 
 .rtp-singular .hentry,.attachment .hentry,.rtp-full-width .hentry {
@@ -3224,12 +3239,10 @@ padding-left:2.5rem;
 }
 
 .widget {
-margin-bottom:1.875rem;
 word-wrap:break-word;
 }
 
 .widget>ul,.widget>ol {
-margin-left:1.25em;
 }
 
 .widget .email-subscription-container input[type="submit"] {
@@ -6632,7 +6645,25 @@ position: relative;
 }
 
 /* News */
-
+.post-contributors{
+	font-size:14px;
+}
+.rtp-content-wrapper{ }
+.rtp-content-wrapper .rtp-content-section{
+	width:73%;
+	margin:20px 2% 20px 0;
+	float:left;
+}
+.rtp-content-wrapper .rtp-content-section.rtp-full-width-grid{
+	width:100%;
+	margin:0;
+	float:none;
+}
+.rtp-content-wrapper .rtp-sidebar-section{
+	width:25%;
+	float:left;
+	margin:20px 0;
+}
 .sticky-image img {
 border: 4px solid #CAC4B4;
 }
@@ -6656,14 +6687,14 @@ padding-right:10px;
 float: right;
 }
 
-ul li.list {
+ul.links li {
 position:relative;
 padding-left:15px; 
 list-style:none;
 }
 
-ul li.list:before{
-background: url("img/sprite.jpg") no-repeat scroll 1px -374px transparent;
+ul.links li:before{
+background: url("img/sprite.png") no-repeat scroll 1px -374px transparent;
 content: "";
 height: 15px;
 left: 0;
@@ -6672,6 +6703,120 @@ top: 8px;
 width: 10px;
 }
 
+.panel-row-style-full-width .panel-grid-cell{
+width:100%;
+float:none;
+}
+.rtp-header-top-right table.gsc-search-box{
+background:none;
+border:none;
+}
+.rtp-header-top-right form.gsc-search-box{
+padding:0;
+margin:0; 
+clear:both;
+}
+.rtp-header-top-right table.gsc-search-box td.gsc-input{
+padding:0;
+}
+.gsc-search-box .gsc-search-button,
+.gsc-search-box .gsc-clear-button{
+display:none !important;
+}
+.rtp-header-top-right .gsc-search-box .gsc-input {
+height:30px;
+width: 90%;
+float:right;
+margin:0;
+
+}
+
+.rtp-header-top{
+display:table;
+width:100%;
+padding:10px 0;
+}
+.rtp-header-top-left{
+display:table-cell;
+vertical-align:middle;
+padding:15px 0;
+}
+.rtp-header-top-right{
+display:table-cell;
+vertical-align:top;
+}
+.rtp-secondary-nav-wrapper.rtp-mobile-nav{
+float:right;
+}
+
+
+/* Start Footer */
+
+/* End Footer */
+.rtp-footer-wrapper-outer {
+background-color:#e6c36e;
+display:table;
+padding:20px 0;
+width:100%;
+}
+.rtp-footer-wrapper-outer .rtp-section-container{
+margin:0 auto;
+}
+.rtp-footer-wrapper a{ color: #333333; }
+.rtp-footer-wrapper-outer .rtp-footerbar{
+float:left;
+}
+.rtp-footer-wrapper-outer .rtp-first-footerbar{
+width:31%;
+}
+.rtp-footer-wrapper-outer .rtp-second-footerbar{
+width:31%;
+margin:0 3.5%;
+}
+.rtp-footer-wrapper-outer .rtp-third-footerbar{
+font-size:12px;
+width:31%;
+text-align:center;
+} 
+.links-list{
+width:100%;
+}
+.links-list li{
+display:inline;
+list-style:none;
+}
+.links-list a{
+color: #333333
+}
+.footer-bottom{
+background-color:#947f4b;
+color:#f3e3bd;
+font-size:11px;
+line-height:17px;
+padding:7px 0;
+clear:both;
+}
+.footer-bottom p,
+.rtp-footer-wrapper-outer .rtp-third-footerbar p { 
+font-size: inherit;
+}
+
+.rtp-footer-wrapper-outer .rtp-third-footerbar p {
+line-height:10px;
+}
+.footer-bottom  .column, .columns{
+padding:0;
+}
+.footer-bottom .widget{
+margin-bottom: 0;
+}
+.rtp-footer-wrapper .widget h3{
+border-bottom: 1px solid #9c793c;
+padding-bottom:5px;
+font-size:16px;
+font-weight:700;
+font-family:"DroidSerif";
+}
 /* End Custom CSS */
 @media print{
 .reveal-modal {

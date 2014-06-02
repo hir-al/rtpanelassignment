@@ -142,6 +142,30 @@ function rtp_sidebar_options_metabox() {
                     </td>
                 </tr><?php
             } ?>
+			<tr valign="top">
+                <th scope="row"><label for="first_footer_sidebar"><?php _e( 'Enable First Footer Sidebar', 'rtPanel' ); ?></label></th>
+                <td>
+                    <input type="hidden" name="rtp_general[first_footer_sidebar]" value="0" />
+                    <input type="checkbox" value="1" size="40" name="rtp_general[first_footer_sidebar]" id="first_footer_sidebar" <?php checked( $rtp_general['first_footer_sidebar'] ); ?> />
+                    <span class="description"><label for="first_footer_sidebar"><?php _e( 'Check this to enable first footer sidebar', 'rtPanel' ); ?></label><br /></span>
+                </td>
+            </tr>
+			<tr valign="top">
+                <th scope="row"><label for="second_footer_sidebar"><?php _e( 'Enable Second Footer Sidebar', 'rtPanel' ); ?></label></th>
+                <td>
+                    <input type="hidden" name="rtp_general[second_footer_sidebar]" value="0" />
+                    <input type="checkbox" value="1" size="40" name="rtp_general[second_footer_sidebar]" id="second_footer_sidebar" <?php checked( $rtp_general['second_footer_sidebar'] ); ?> />
+                    <span class="description"><label for="second_footer_sidebar"><?php _e( 'Check this to enable second footer sidebar', 'rtPanel' ); ?></label><br /></span>
+                </td>
+            </tr>
+			<tr valign="top">
+                <th scope="row"><label for="third_footer_sidebar"><?php _e( 'Enable Third Footer Sidebar', 'rtPanel' ); ?></label></th>
+                <td>
+                    <input type="hidden" name="rtp_general[third_footer_sidebar]" value="0" />
+                    <input type="checkbox" value="1" size="40" name="rtp_general[third_footer_sidebar]" id="third_footer_sidebar" <?php checked( $rtp_general['third_footer_sidebar'] ); ?> />
+                    <span class="description"><label for="third_footer_sidebar"><?php _e( 'Check this to enable third footer sidebar', 'rtPanel' ); ?></label><br /></span>
+                </td>
+            </tr>
             <tr valign="top">
                 <th scope="row"><label for="footer_sidebar"><?php _e( 'Enable Footer Sidebar', 'rtPanel' ); ?></label></th>
                 <td>

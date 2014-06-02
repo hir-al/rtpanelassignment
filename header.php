@@ -39,7 +39,6 @@ global $rtp_general; ?><!DOCTYPE html>
             <div id="header-wrapper" class="rtp-header-wrapper rtp-section-wrapper">
 
                     <?php rtp_hook_before_header(); ?>
-
                     <header id="header" class="row rtp-section-container" role="banner">
 
                         <?php $header_class = get_header_image() ? ' rtp-header-wrapper-image' : ''; ?>
@@ -59,14 +58,13 @@ global $rtp_general; ?><!DOCTYPE html>
 								<div class="rtp-header-top-right">
 									<?php rtp_hook_header_right(); ?>
 									<?php 
-									//if ( !dynamic_sidebar( 'header-search-widget' ) && is_active_sidebar( 'header-search-widget ' ) ) 
-										dynamic_sidebar( ); ?>									
+									if ( !dynamic_sidebar( 'header-search-widget' ) && is_active_sidebar( 'header-search-widget' ) ) 
+										echo dynamic_sidebar('header-search-widget'); ?>									
 								</div>								
 							</div>
 							<div class="rtp-header-bottom clearfix">
 								<?php rtp_hook_primary_menu(); ?>
-							</div>
-                            <?php rtp_hook_end_header(); ?>
+							</div><?php rtp_hook_end_header(); ?>
                         </div>
                     </header><!-- #header -->
 

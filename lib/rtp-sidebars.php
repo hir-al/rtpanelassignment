@@ -67,5 +67,43 @@ function rtp_widgets_init() {
             'after_title' => '</h3>',
         ) );
     }
+	
+	// First Footer Widget
+	if ( isset( $rtp_general['first_footer_sidebar'] ) && $rtp_general['first_footer_sidebar'] ) {
+		register_sidebar( array(
+			'name' => __( 'First Footer Widgets', 'rtPanel' ),
+			'id' => "first-footer-widgets",
+			'before_widget' => '<div id="%1$s" class="widget footerbar-widget '. $rtp_footer_widget_grid_class .' %2$s">',
+			'after_widget' => '</div>',
+			'before_title' => '<h3 class="widgettitle">',
+			'after_title' => '</h3>',
+		) );
+	}
+	
+	// Second Footer Widget
+	if ( isset( $rtp_general['second_footer_sidebar'] ) && $rtp_general['second_footer_sidebar'] ) {
+		register_sidebar( array(
+			'name' => __( 'Second Footer Widgets', 'rtPanel' ),
+			'id' => "second-footer-widgets",
+			'before_widget' => '<div id="%1$s" class="widget footerbar-widget '. $rtp_footer_widget_grid_class .' %2$s">',
+			'after_widget' => '</div>',
+			'before_title' => '<h3 class="widgettitle">',
+			'after_title' => '</h3>',
+		) );
+	}
+	
+	// Third Footer Widget	
+	if ( isset( $rtp_general['third_footer_sidebar'] ) && $rtp_general['third_footer_sidebar'] ) {
+		register_sidebar( array(
+			'name' => __( 'Third Footer Widgets', 'rtPanel' ),
+			'id' => "third-footer-widgets",
+			'before_widget' => '<div id="%1$s" class="widget footerbar-widget '. $rtp_footer_widget_grid_class .' %2$s">',
+			'after_widget' => '</div>',
+			'before_title' => '<h3 class="widgettitle">',
+			'after_title' => '</h3>',
+		) );
+	}
 }
 add_action( 'widgets_init', 'rtp_widgets_init' );
+
+/* Includes Custom Posts located in 'widgets' folder */

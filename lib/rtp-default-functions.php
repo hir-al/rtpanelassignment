@@ -201,7 +201,6 @@ function filter_wp_nav_menu_items ( $items, $args ) {
  * @since rtPanel 4.0
  */
 function rtp_header_separator_border() {
-     echo '<hr />';
 }
 
 add_action ( 'rtp_hook_end_header', 'rtp_header_separator_border' );
@@ -249,7 +248,7 @@ function rtp_blog_description() {
     }
 }
 
-add_action ( 'rtp_hook_after_logo', 'rtp_blog_description' );
+//add_action ( 'rtp_hook_after_logo', 'rtp_blog_description' );
 
 /**
  * Adds pagination to single
@@ -644,7 +643,7 @@ function rtp_footer_copyright_content() { ?>
     </div><!-- #footer -->
     <?php
 }
-add_action ( 'rtp_hook_end_footer', 'rtp_footer_copyright_content' );
+//add_action ( 'rtp_hook_end_footer', 'rtp_footer_copyright_content' );
 
 /**
  * Default sidebar text if widgets are inactive
@@ -662,3 +661,53 @@ function rtp_sidebar_content() { ?>
     </div><?php
 }
 add_action( 'rtp_hook_sidebar_content', 'rtp_sidebar_content' );
+
+/**
+ * Outputs contributors of the particular post
+ *
+ */
+function rtp_show_contributors() {
+    global $post;
+	// display Contributors
+	$authors = array();
+	$author_array = get_post_meta($post->ID, 'contributor', true);
+	if(!empty($author_array)):
+		$author_array = explode(',' ,$author_array);
+		foreach($author_array as $key){
+			$author_info = get_userdata($key); 
+			$full_name = $author_info->first_name.' '.$author_info->last_name;
+			$authors[] = '<a href="'.get_author_posts_url($author_info->ID).'" title="'.$full_name.'">'.$full_name.'</a>';
+			$output = '';
+			$output .= '<div class="post-contributors">';
+			$output .= _x( 'Contributors: ', 'rtPanel' );
+			$output .= implode(",", $authors);
+			$output .= '</div>';		
+		}			
+		echo $output;	
+	endif;
+}
+
+function rtp_admin_custom_add_scripts() {
+	wp_register_script( 'jquery-admin-custom', get_template_directory_uri() . '/js/jquery-admin-custom.js', false, '1.0.0' );
+    wp_enqueue_script( 'jquery-admin-custom' );
+	wp_enqueue_script('media-upload');
+	wp_enqueue_script('thickbox');
+}
+add_action( 'admin_head', 'rtp_admin_custom_add_scripts' );
+
+function rtp_custom_add_scripts() {
+    wp_enqueue_script( 'owl-carousel-script', get_stylesheet_directory_uri() . '/js/jquery.owl.carousel.min.js');
+	wp_enqueue_script( 'custom-script', get_stylesheet_directory_uri() . '/js/jquery.custom.js');
+}
+add_action( 'wp_enqueue_scripts', 'rtp_custom_add_scripts' );
+
+function rtp_custom_add_styles() {
+    wp_enqueue_style( 'owl-carousel-css', get_stylesheet_directory_uri() . '/css/owl.carousel.css');
+}
+add_action( 'wp_print_styles', 'rtp_custom_add_styles' );
+
+function trp_panels_row_styles($styles) {
+    $styles['full-width'] = __('Full Width', 'vantage');
+    return $styles;
+}
+add_filter('siteorigin_panels_row_styles', 'trp_panels_row_styles'); ?>
