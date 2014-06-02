@@ -662,10 +662,7 @@ function rtp_sidebar_content() { ?>
 }
 add_action( 'rtp_hook_sidebar_content', 'rtp_sidebar_content' );
 
-/**
- * Outputs contributors of the particular post
- *
- */
+// Outputs contributors of the particular post
 function rtp_show_contributors() {
     global $post;
 	// display Contributors
@@ -687,6 +684,7 @@ function rtp_show_contributors() {
 	endif;
 }
 
+// Enqueue Admin Scripts 
 function rtp_admin_custom_add_scripts() {
 	wp_register_script( 'jquery-admin-custom', get_template_directory_uri() . '/js/jquery-admin-custom.js', false, '1.0.0' );
     wp_enqueue_script( 'jquery-admin-custom' );
@@ -695,19 +693,38 @@ function rtp_admin_custom_add_scripts() {
 }
 add_action( 'admin_head', 'rtp_admin_custom_add_scripts' );
 
-function rtp_custom_add_scripts() {
-    wp_enqueue_script( 'owl-carousel-script', get_stylesheet_directory_uri() . '/js/jquery.owl.carousel.min.js');
-	wp_enqueue_script( 'custom-script', get_stylesheet_directory_uri() . '/js/jquery.custom.js');
+// Enqueue Fonts 
+if ( ! function_exists( 'rtp_load_fonts' ) ) :
+function rtp_load_fonts() {
+	$protocol = is_ssl() ? 'https' : 'http';
+	wp_enqueue_style( 'droid-serif', "$protocol://fonts.googleapis.com/css?family=Droid+Serif" );
+}
+endif;
+add_action( 'get_header', 'rtp_load_fonts' );
+
+// Enqueue Front end Scripts
+ function rtp_custom_add_scripts() {	
+	//wp_enqueue_script( 'rtp-jquery-2.1.1-script', get_stylesheet_directory_uri() . '/js/jquery-2.1.1.min.js');
+	//wp_enqueue_script( 'rtp-thickbox-script', get_stylesheet_directory_uri() . '/js/thickbox-min.js');
+	wp_enqueue_script( 'rtp-owl-carousel-script', get_stylesheet_directory_uri() . '/js/jquery.owl.carousel.min.js');
+	wp_enqueue_script( 'rtp-custom-script', get_stylesheet_directory_uri() . '/js/jquery.custom.js');
 }
 add_action( 'wp_enqueue_scripts', 'rtp_custom_add_scripts' );
 
+// Enqueue Front end Styles 
 function rtp_custom_add_styles() {
-    wp_enqueue_style( 'owl-carousel-css', get_stylesheet_directory_uri() . '/css/owl.carousel.css');
+    wp_enqueue_style( 'rtp-owl-carousel-css', get_stylesheet_directory_uri() . '/css/owl.carousel.css');
+	wp_enqueue_style( 'rtp-thickbox-css', get_stylesheet_directory_uri() . '/css/thickbox.css');
 }
 add_action( 'wp_print_styles', 'rtp_custom_add_styles' );
 
-function trp_panels_row_styles($styles) {
-    $styles['full-width'] = __('Full Width', 'vantage');
-    return $styles;
+// Removes <p> and </br> tags from wp_content
+remove_filter( 'the_content', 'wpautop' );
+remove_filter( 'the_excerpt', 'wpautop' );
+
+function templatemela_wpautop_nobr( $content ) {
+    return wpautop( $content, false );
 }
-add_filter('siteorigin_panels_row_styles', 'trp_panels_row_styles'); ?>
+add_filter( 'the_content', 'templatemela_wpautop_nobr' );
+add_filter( 'the_excerpt', 'templatemela_wpautop_nobr' );
+ ?>

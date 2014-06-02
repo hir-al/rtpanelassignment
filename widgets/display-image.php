@@ -3,7 +3,7 @@ class DisplayImageWidget extends WP_Widget
 {
     function DisplayImageWidget(){
 		$widget_settings = array('description' => 'Display Image Widget', 'classname' => 'widgets-image');
-		parent::WP_Widget(false,$name='RTP - Display Image Widget',$widget_settings);
+		parent::WP_Widget(false,$name='RTP - Image Widget',$widget_settings);
     }
     function widget($args, $instance){
 		extract($args);
@@ -16,7 +16,7 @@ class DisplayImageWidget extends WP_Widget
 		$imageAlt = empty($imageAlt) ? $title : $imageAlt;
 		$imageTitle = empty($imageTitle) ? $title : $imageTitle;	
 		
-		if($is_template_path == 1): $imageSrc = get_template_directory_uri() . '/img/' . $imageSrc; endif; 
+		if($is_template_path == 1): $imageSrc = get_template_directory_uri() . '/images/' . $imageSrc; endif; 
 		echo $before_widget; 
 		if($title){
 		echo $before_title;			

@@ -549,6 +549,33 @@ function rtp_general_validate($input) {
 
         $input['custom_styles'] = $default[0]['custom_styles'];
         add_settings_error( 'custom_styles', 'reset_custom_styles', __( 'Custom Styles has been restored to Default.', 'rtPanel' ), 'updated' );
+	} elseif (isset($_POST['rtp_youtube_links_reset'])) {
+        $options = maybe_unserialize($rtp_general);
+        unset($input);
+
+        foreach ($options as $option => $value)
+            $input[$option] = $value;
+
+        $input['youtube_links'] = $default[0]['youtube_links'];
+        add_settings_error( 'youtube_links', 'reset_youtube_links', __( 'YouTube Links has been restored to Default.', 'rtPanel' ), 'updated' );
+	} elseif (isset($_POST['rtp_page_content_reset'])) {
+        $options = maybe_unserialize($rtp_general);
+        unset($input);
+
+        foreach ($options as $option => $value)
+            $input[$option] = $value;
+
+        $input['page_content'] = $default[0]['page_content'];
+        add_settings_error( 'page_content', 'reset_page_content', __( 'Page Content has been restored to Default.', 'rtPanel' ), 'updated' );
+	} elseif (isset($_POST['rtp_slider_images_reset'])) {
+        $options = maybe_unserialize($rtp_general);
+        unset($input);
+
+        foreach ($options as $option => $value)
+            $input[$option] = $value;
+
+        $input['slider_images'] = $default[0]['slider_images'];
+        add_settings_error( 'slider_images', 'reset_slider_images', __( 'Slider Image has been restored to Default.', 'rtPanel' ), 'updated' );
     } elseif (isset($_POST['rtp_export'])) {
         rtp_export();
         die();
@@ -1116,8 +1143,10 @@ function rtp_theme_options_help() {
     $general_help .= __( '<strong>Google Custom Search Integration:</strong> This option would enable you to harness the power of Google Search instead of the default WordPress search by specifying the Google Custom Search Code.  You also have the option of rendering the Google Search Page without the sidebar.', 'rtPanel' );
     $general_help .= '</p><p>';
     $general_help .= __( '<strong>Sidebar Settings:</strong> Enable / Disable the Footer Sidebar from here.', 'rtPanel' );
-     $general_help .= '</p><p>';
+    $general_help .= '</p><p>';
     $general_help .= __( '<strong>Custom Styles:</strong> You can specify your own CSS styles in this option to override the default Style.', 'rtPanel' );
+	$general_help .= '</p><p>';
+	$general_help .= __( '<strong>Youtube Links:</strong> You can enter youtube links here.', 'rtPanel' );
 	$general_help .= '</p><p>';
     $general_help .= __( '<strong>Image Slider:</strong> You can specify your own Image slider in this option.', 'rtPanel' );
     $general_help .= '</p><p>';

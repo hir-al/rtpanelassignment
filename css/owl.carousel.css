@@ -25,9 +25,9 @@
 	-webkit-transform: translate3d(0px, 0px, 0px);
 }
 .owl-carousel .owl-wrapper-outer{
-	overflow: hidden;
 	position: relative;
 	width: 100%;
+	overflow:hidden;
 }
 .owl-carousel .owl-wrapper-outer.autoHeight{
 	-webkit-transition: height 500ms ease-in-out;
@@ -37,13 +37,20 @@
 	transition: height 500ms ease-in-out;
 }
 
-.rtp-partners-container.owl-carousel .owl-wrapper-outer{
-width:85%;
-margin:0 auto;
+.rtp-partners-container .owl-carousel{
+	width:85%;
+	margin:0 auto;
+}
+.rtp-youtube-links-container .owl-carousel{
+	width:90%;
+	margin:0 auto;
 }
 	
 .owl-carousel .owl-item{
-	float: left;
+	float: left;	
+}
+.owl-carousel .owl-item .item{
+	margin:0 2px;
 }
 .owl-controls .owl-page,
 .owl-controls .owl-buttons div{
@@ -83,7 +90,11 @@ margin:0 auto;
 	margin-top: 10px;
 	text-align: center;
 }
-
+.owl-theme .owl-controls .owl-pagination{
+	bottom: 7px;
+    position: absolute;
+    right: 15px;
+}
 /* Styling Next and Prev buttons */
 
 .owl-theme .owl-controls .owl-buttons div{
@@ -101,8 +112,8 @@ margin:0 auto;
 	
 }
 .owl-theme .owl-controls.clickable .owl-buttons .owl-prev{
-background: url("../img/sprite.jpg") no-repeat scroll 6px -11px transparent;
-left:0;
+background: url("../images/sprite.jpg") no-repeat scroll 6px -11px transparent;
+left:-75px;
 top:0;
 }
 
@@ -111,13 +122,24 @@ background-position:6px -119px;
 }
 
 .owl-theme .owl-controls.clickable .owl-buttons .owl-next{
-background: url("../img/sprite.jpg") no-repeat scroll -49px -11px transparent;
-right:0;
+background: url("../images/sprite.jpg") no-repeat scroll -49px -11px transparent;
+right:-75px;
 top:0;
 }
 
 .owl-theme .owl-controls.clickable .owl-buttons .owl-next:hover{
 background-position:-49px -121px;
+}
+
+.rtp-youtube-links-container .owl-theme .owl-controls.clickable .owl-buttons .owl-prev,
+.rtp-youtube-links-container .owl-theme .owl-controls.clickable .owl-buttons .owl-next{
+top:18%;
+}
+.rtp-youtube-links-container .owl-theme .owl-controls.clickable .owl-buttons .owl-prev{
+left:-50px;
+}
+.rtp-youtube-links-container .owl-theme .owl-controls.clickable .owl-buttons .owl-next{
+right:-46px;
 }
 
 /* Styling Pagination*/
@@ -129,21 +151,20 @@ background-position:-49px -121px;
 }
 .owl-theme .owl-controls .owl-page span{
 	display: block;
-	width: 12px;
-	height: 12px;
-	margin: 5px 7px;
-	filter: Alpha(Opacity=50);/*IE7 fix*/
-	opacity: 0.5;
+	width: 15px;
+	height: 15px;
+	margin: 3px;
 	-webkit-border-radius: 20px;
 	-moz-border-radius: 20px;
 	border-radius: 20px;
-	background: #869791;
+	border: 2px solid #e6c36e;
+	background: #86705e;
 }
 
 .owl-theme .owl-controls .owl-page.active span,
 .owl-theme .owl-controls.clickable .owl-page:hover span{
-	filter: Alpha(Opacity=100);/*IE7 fix*/
 	opacity: 1;
+	border: 2px solid #f9f8f7;
 }
 
 /* If PaginationNumbers is true */

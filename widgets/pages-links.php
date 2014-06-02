@@ -3,7 +3,7 @@ class WordpressPagesWidget extends WP_Widget
 {
     function WordpressPagesWidget(){
 		$widget_settings = array('description' => 'Display Pages List Widget', 'classname' => 'widgets-pages');
-		parent::WP_Widget(false,$name='RTP - Display Pages Widget',$widget_settings);
+		parent::WP_Widget(false,$name='RTP - List of Pages Widget',$widget_settings);
     }
     function widget($args, $instance){
 		extract($args);	

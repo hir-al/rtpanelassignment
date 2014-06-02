@@ -17,7 +17,7 @@
 /* Theme Option Container */
 .rtpanel-admin { overflow: hidden; width: 75%; position: relative; max-width: 1050px; font-size: 15px; }
     .rtpanel-admin h2 { border-bottom: 1px solid #cccccc; padding-bottom: 0; padding-left: 6px; }
-#icon-rtpanel { background: url("../../img/rtp-icon.jpg") no-repeat }
+#icon-rtpanel { background: url("../../images/rtp-icon.jpg") no-repeat }
 .nav-tab { margin: 0 5px -1px 0 }
 h2 .nav-tab { font-size: 20px; padding: 4px 6px; }
 .options-main-container { margin-bottom: 15px; overflow: hidden; padding: 0; }
@@ -101,5 +101,11 @@ textarea[disabled] { background-color: Silver }
 .expand-collapse { background: #cccccc; color: #333333; float: right; font-size: 85%; padding: 5px 8px; text-decoration: none; }
 .expand-collapse:hover { text-decoration: underline }
 .rt-social-share { margin: 2px auto; text-align: center; width: 135px; }
-    .rt-social-share .rt-twitter { float: left; margin-right: 5px; }
-    .rt-social-share .rt-facebook { float: left; margin-left: 5px; position: relative; }
+.rt-social-share .rt-twitter { float: left; margin-right: 5px; }
+.rt-social-share .rt-facebook { float: left; margin-left: 5px; position: relative; }
+.slider-images .addImage{float: right;}
+.slider-images .single-image{ display:table; }
+.slider-images .removeImage,
+.slider-images .single-image table{  display: table-cell; vertical-align: middle;}
+.slider-images span.description{ clear: both; float: left; width: 100%; }
+.form-table.slider-images div { clear: both; }

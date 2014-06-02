@@ -161,6 +161,9 @@ class rtp_theme {
                 add_meta_box( 'google_search', __( 'Google Custom Search Integration', 'rtPanel'), 'rtp_google_search_metabox', 'appearance_page_' . $tab, 'normal', 'core' );
                 add_meta_box( 'sidebar_options', __( 'Sidebar Settings', 'rtPanel' ), 'rtp_sidebar_options_metabox', 'appearance_page_' . $tab, 'normal', 'core' );
                 add_meta_box( 'custom_styles_options', __( 'Custom Styles', 'rtPanel' ), 'rtp_custom_styles_metabox', 'appearance_page_' . $tab, 'normal', 'core' );
+				add_meta_box( 'slider_images_options', __( 'Homepage slider', 'rtPanel' ), 'rtp_slider_images_metabox', 'appearance_page_' . $tab, 'normal', 'core' );
+				add_meta_box( 'page_content_options', __( 'Display Page Content', 'rtPanel' ), 'rtp_page_content_metabox', 'appearance_page_' . $tab, 'normal', 'core' );
+				add_meta_box( 'youtube_links_options', __( 'YouTube Links', 'rtPanel' ), 'rtp_youtube_links_metabox', 'appearance_page_' . $tab, 'normal', 'core' );				
                 add_meta_box( 'plugin_support', __( 'Plugin Support', 'rtPanel'), 'rtp_plugin_metabox', 'appearance_page_' . $tab, 'normal', 'core' );
                 add_meta_box( 'backup_options', __( 'Backup / Restore Settings', 'rtPanel' ), 'rtp_backup_metabox', 'appearance_page_' . $tab, 'normal', 'core' );
                 do_action( $tab .'_metaboxes' );

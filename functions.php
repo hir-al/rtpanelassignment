@@ -20,13 +20,13 @@ define( 'RTP_FORUM_URL', RTP_AUTHOR_URL . 'support/forum/rtpanel/' );   // Theme
 define( 'RTP_ADMIN', get_template_directory() . '/admin' );
 define( 'RTP_CSS', get_template_directory() . '/css' );
 define( 'RTP_JS', get_template_directory() . '/js' );
-define( 'RTP_IMG', get_template_directory() . '/img' );
+define( 'RTP_IMG', get_template_directory() . '/images' );
 
 /* Define Directory URL Constants */
 define( 'RTP_TEMPLATE_URL', get_template_directory_uri() );
 define( 'RTP_CSS_FOLDER_URL', get_template_directory_uri() . '/css' );
 define( 'RTP_JS_FOLDER_URL', get_template_directory_uri() . '/js' );
-define( 'RTP_IMG_FOLDER_URL', get_template_directory_uri() . '/img' );
+define( 'RTP_IMG_FOLDER_URL', get_template_directory_uri() . '/images' );
 define( 'RTP_ASSETS_URL', get_template_directory_uri() . '/assets' );
 define( 'RTP_BOWER_COMPONENTS_URL', get_template_directory_uri() . '/assets/foundation/bower_components' );
 

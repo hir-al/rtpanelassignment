@@ -250,6 +250,121 @@ function rtp_custom_styles_metabox() {
 }
 
 /**
+ * YouTube Links Metabox - General Tab
+ * 
+ * @uses $rtp_general array
+ *
+ * @since rtPanel 2.0
+ */
+function rtp_youtube_links_metabox() {
+    global $rtp_general; ?>
+    <table class="form-table">
+        <tbody>
+            <tr valign="top">
+                <th scope="row"><label for="youtube_links"><?php _e( 'Add YouTube Links here &rarr;', 'rtPanel' ); ?></label></th>
+                <td>
+                    <textarea cols="80" rows="5" name="rtp_general[youtube_links]" id="youtube_links"><?php echo esc_textarea( $rtp_general['youtube_links'] ); ?></textarea><br />
+                    <span class="description"><label for="youtube_links"><?php _e( 'Add your YouTube links by "," sepateted.', 'rtPanel' ); ?></label></span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="rtp_submit">
+        <?php submit_button('Save All Changes', 'primary', 'rtp_submit', false ); ?>
+        <?php submit_button('Reset YouTube Links', 'secondary', 'rtp_youtube_links_reset', false ); ?>
+        <div class="clear"></div>
+    </div>
+<?php
+}
+
+/**
+ * Display Page Content Metabox - General Tab
+ * 
+ * @uses $rtp_general array
+ *
+ * @since rtPanel 2.0
+ */
+function rtp_page_content_metabox() {
+    global $rtp_general; ?>
+    <table class="form-table">
+        <tbody>
+            <tr valign="top">
+                <th scope="row"><label for="page_content"><?php _e( 'Select Page here &rarr;', 'rtPanel' ); ?></label></th>
+                <td>
+				<select id="page_content" name="rtp_general[page_content]"> 
+				 <option value="">
+				<?php echo esc_attr( __( 'Select page' ) ); ?></option> 
+				 <?php 
+				  $pages = get_pages(); 
+				  foreach ( $pages as $page ) {
+					$page->ID == $rtp_general[page_content];
+					if($page->ID == $rtp_general[page_content])
+						$selected = " selected='selected'";
+					else
+						$selected = "";
+					$option = '<option value="'.$page->ID.'" '.$selected.'>';
+					$option .= $page->post_title;
+					$option .= '</option>';
+					echo $option;
+				  }
+				 ?>
+				</select><br />
+                    <span class="description"><label for="page_content"><?php _e( 'Select the page you want to display of page content.', 'rtPanel' ); ?></label></span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="rtp_submit">
+        <?php submit_button('Save All Changes', 'primary', 'rtp_submit', false ); ?>
+        <?php submit_button('Reset Page Content', 'secondary', 'rtp_page_content_reset', false ); ?>
+        <div class="clear"></div>
+    </div>
+<?php
+}
+
+/**
+ * YouTube Links Metabox - General Tab
+ * 
+ * @uses $rtp_general array
+ *
+ * @since rtPanel 2.0
+ */
+function rtp_slider_images_metabox() {
+    global $rtp_general; ?>
+    <table class="form-table slider-images">
+        <tbody>
+            <tr valign="top">
+                <th scope="row"><label for="slider_images"><?php _e( 'Add Slider Image here &rarr;', 'rtPanel' ); ?></label></th>
+                <td>
+					<a href="#" class="addImage" id="addImage"><?php _e( 'Add New Image', 'rtPanel' ); ?></a>
+					<div id="slider_images_div">
+					<?php foreach($rtp_general[slider_images] as $key=>$value ) {?>
+					<?php $image_no = $key+1; ?>					
+						<div class="single-image">
+							<table>
+							<tr>
+							<td>Image <?php echo $image_no; ?>:</td>
+							<td><input type="text" id="image_<?php echo $image_no; ?>" name="rtp_general[slider_images][<?php echo $key; ?>]" value="<?php echo $value; ?>"/><input id="<?php echo $image_no; ?>_btn" class="upload_image_button button" type="button" value="Upload Image"/></td>
+							</tr>
+							</table>
+							<a href="#" class="removeImage" id="removeImage">Remove</a>
+						</div>
+					<?php } ?>
+					</div>
+                    <span class="description"><label for="slider_images"><?php _e( 'Slider image will be displayed in slider.' ); ?></label></span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="rtp_submit">
+        <?php submit_button('Save All Changes', 'primary', 'rtp_submit', false ); ?>
+        <?php submit_button('Reset Slider Images', 'secondary', 'rtp_slider_images_reset', false ); ?>
+        <div class="clear"></div>
+    </div>
+<?php
+}
+
+/**
  * Plugin Support Metabox - General Tab
  *
  * @since rtPanel 2.0

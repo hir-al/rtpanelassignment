@@ -4,28 +4,28 @@ class FacebookLikesWidget extends WP_Widget
 {
     function FacebookLikesWidget(){
 		$widget_settings = array('description' => 'Facebook Likes Widget', 'classname' => 'widgets-facebook-likes');
-		parent::WP_Widget(false,$name='RTP - Facebook Likes Widget',$widget_settings);
+		parent::WP_Widget(false,$name='RTP - FaceBook Likes Widget',$widget_settings);
     }
     function widget($args, $instance){
 		extract($args);		
 		$title = empty($instance['title']) ? '' : $instance['title']; 
 		$application_id = empty($instance['application_id']) ? '' : $instance['application_id']; 
-		echo $before_widget;
-		if($title){
-		echo $before_title;			
-			echo $title;
-		echo $after_title;
-		} ?> 
-		<div id="fb-root"></div>
-		<script>(function(d, s, id) {
-		var js, fjs = d.getElementsByTagName(s)[0];
-		if (d.getElementById(id)) return;
-		js = d.createElement(s); js.id = id;
-		js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=<?php echo $application_id; ?>&version=v2.0";
-		fjs.parentNode.insertBefore(js, fjs);
-		}(document, 'script', 'facebook-jssdk'));</script>
-
-		<div class="fb-like-box" data-href="https://www.facebook.com/FacebookDevelopers" data-colorscheme="light" data-show-faces="true" data-header="false" data-stream="false" data-show-border="false"></div>
+		echo $before_widget; ?>	
+		<div class="rtp-facebook-likes-container">
+			<?php if($title)
+			echo '<h3 class="title">'.$title.'</h3>'; ?>
+			
+			<div id="fb-root"></div>
+			<script>(function(d, s, id) {
+			  var js, fjs = d.getElementsByTagName(s)[0];
+			  if (d.getElementById(id)) return;
+			  js = d.createElement(s); js.id = id;
+			  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=<?php echo $application_id; ?>&version=v2.0";
+			  fjs.parentNode.insertBefore(js, fjs);
+			}(document, 'script', 'facebook-jssdk'));</script>
+			
+			<div class="fb-like-box" data-href="https://www.facebook.com/FacebookDevelopers" data-width="350px" data-colorscheme="light" data-show-faces="true" data-header="false" data-stream="false" data-show-border="false"></div>
+		</div>
 		<?php echo $after_widget;					
 	}
 	
