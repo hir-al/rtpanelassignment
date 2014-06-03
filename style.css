@@ -7100,6 +7100,7 @@ display:none!important;
 		height:20px;
 		font-size: 12px;
 		padding-left: 8px;
+		vertical-align: -4px;
 		float:right;
 		margin-right:10px;
 	}
