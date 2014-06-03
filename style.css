@@ -7096,12 +7096,10 @@ display:none!important;
 	}
 	.menu-toggle:after {
 		content: "";
-		background:url("images/sprite.png") no-repeat scroll -224px -338px transparent;
 		width:15px;
 		height:20px;
 		font-size: 12px;
 		padding-left: 8px;
-		vertical-align: -4px;
 		float:right;
 		margin-right:10px;
 	}
