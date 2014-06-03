@@ -52,6 +52,9 @@
 .owl-carousel .owl-item .item{
 	margin:0 2px;
 }
+.rtp-partners-container .owl-carousel .owl-item .item{ 
+	margin: 20px 0 30px;
+}
 .owl-controls .owl-page,
 .owl-controls .owl-buttons div{
 	cursor: pointer;
@@ -87,7 +90,6 @@
 */
 
 .owl-theme .owl-controls{
-	margin-top: 10px;
 	text-align: center;
 }
 .owl-theme .owl-controls .owl-pagination{
@@ -102,7 +104,7 @@
 	zoom: 1;
 	*display: inline;/*IE7 life-saver */
 	color: transparent;
-    height: 80px;
+    height: 100px;
     width: 45px;
 	position:absolute;
 }
@@ -112,28 +114,28 @@
 	
 }
 .owl-theme .owl-controls.clickable .owl-buttons .owl-prev{
-background: url("../images/sprite.jpg") no-repeat scroll 6px -11px transparent;
+background: url("../images/sprite.jpg") no-repeat scroll 6px 0px transparent;
 left:-75px;
-top:0;
+top:10px;
 }
 
 .owl-theme .owl-controls.clickable .owl-buttons .owl-prev:hover{
-background-position:6px -119px;
+background-position:6px -109px;
 }
 
 .owl-theme .owl-controls.clickable .owl-buttons .owl-next{
-background: url("../images/sprite.jpg") no-repeat scroll -49px -11px transparent;
+background: url("../images/sprite.jpg") no-repeat scroll -49px 0px transparent;
 right:-75px;
-top:0;
+top:10px;
 }
 
 .owl-theme .owl-controls.clickable .owl-buttons .owl-next:hover{
-background-position:-49px -121px;
+background-position:-49px -110px;
 }
 
 .rtp-youtube-links-container .owl-theme .owl-controls.clickable .owl-buttons .owl-prev,
 .rtp-youtube-links-container .owl-theme .owl-controls.clickable .owl-buttons .owl-next{
-top:18%;
+top:12%;
 }
 .rtp-youtube-links-container .owl-theme .owl-controls.clickable .owl-buttons .owl-prev{
 left:-50px;
