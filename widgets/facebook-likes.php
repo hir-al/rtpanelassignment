@@ -2,6 +2,8 @@
 
 // Reference:  http://codex.wordpress.org/Widgets_API
 
+// Widget to display FaceBook likes box
+
 class FacebookLikesWidget extends WP_Widget
 {
 	function FacebookLikesWidget()
@@ -20,9 +22,7 @@ class FacebookLikesWidget extends WP_Widget
 		$application_id = empty($instance['application_id']) ? '' : $instance['application_id'];
 		echo $before_widget; ?>	
 		<div class="rtp-facebook-likes-container">
-			<?php
-		if ($title) echo '<h3 class="title">' . $title . '</h3>'; ?>
-			
+		<?php  if ($title) echo '<h3 class="title">' . $title . '</h3>'; ?>			
 			<div id="fb-root"></div>
 			<script>(function(d, s, id) {
 			  var js, fjs = d.getElementsByTagName(s)[0];
