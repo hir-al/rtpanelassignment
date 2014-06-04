@@ -1,7 +1,5 @@
 <?php
 
-// Custom Post to display partners
-
 function partner_theme_custom_posts()
 {
 	$labels = array(
