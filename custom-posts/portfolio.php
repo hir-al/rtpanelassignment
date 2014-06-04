@@ -1,5 +1,7 @@
 <?php
 
+/* Custom post to display partners */
+
 function portfolio_theme_custom_posts()
 {
 	$labels = array(
