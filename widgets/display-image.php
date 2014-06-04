@@ -2,6 +2,8 @@
 
 // Reference:  http://codex.wordpress.org/Widgets_API
 
+// Widget to display image
+
 class DisplayImageWidget extends WP_Widget
 {
 	function DisplayImageWidget()
