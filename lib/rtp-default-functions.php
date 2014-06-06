@@ -865,12 +865,12 @@ add_action('get_header', 'rtp_load_fonts');
 
 function rtp_custom_add_scripts()
 {
-
-	// wp_enqueue_script( 'rtp-jquery-2.1.1-script', get_stylesheet_directory_uri() . '/js/jquery-2.1.1.min.js');
-	// wp_enqueue_script( 'rtp-thickbox-script', get_stylesheet_directory_uri() . '/js/thickbox-min.js');
-
-	wp_enqueue_script('rtp-owl-carousel-script', get_stylesheet_directory_uri() . '/js/jquery.owl.carousel.min.js');
-	wp_enqueue_script('rtp-custom-script', get_stylesheet_directory_uri() . '/js/jquery.custom.js');
+	wp_enqueue_script( 'rtp-jquery-script', get_template_directory_uri() . '/js/jquery.js' );
+	wp_enqueue_script( 'rtp-thickbox-script', get_template_directory_uri() . '/js/thickbox.js' );	
+	$params = get_template_directory_uri();
+	wp_localize_script( 'rtp-thickbox-script', 'ThemePath', $params );
+	wp_enqueue_script( 'rtp-owl-carousel-script', get_template_directory_uri() . '/js/jquery.owl.carousel.min.js ');
+	wp_enqueue_script( 'rtp-custom-script', get_template_directory_uri() . '/js/jquery.custom.js' );
 }
 
 add_action('wp_enqueue_scripts', 'rtp_custom_add_scripts');
@@ -879,8 +879,8 @@ add_action('wp_enqueue_scripts', 'rtp_custom_add_scripts');
 
 function rtp_custom_add_styles()
 {
-	wp_enqueue_style('rtp-owl-carousel-css', get_stylesheet_directory_uri() . '/css/owl.carousel.css');
-	wp_enqueue_style('rtp-thickbox-css', get_stylesheet_directory_uri() . '/css/thickbox.css');
+	wp_enqueue_style('rtp-owl-carousel-css', get_template_directory_uri() . '/css/owl.carousel.css');
+	wp_enqueue_style('rtp-thickbox-css', get_template_directory_uri() . '/css/thickbox.css');
 }
 
 add_action('wp_print_styles', 'rtp_custom_add_styles');
@@ -897,4 +897,21 @@ function templatemela_wpautop_nobr($content)
 
 add_filter('the_content', 'templatemela_wpautop_nobr');
 add_filter('the_excerpt', 'templatemela_wpautop_nobr');
+
+// Get pagination paged
+
+function get_paged() {
+    global $wp_query;
+    if ( get_query_var( 'paged' ) ) {
+        $paged = get_query_var( 'paged' );
+
+    } elseif ( ! empty( $wp_query->query['paged'] ) ) {
+        $paged = $wp_query->query['paged'];
+    }
+
+    if ( ! empty( $paged ) )
+        return (int) $paged;
+
+    return 1;
+}
 ?>
