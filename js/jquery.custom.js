@@ -1,5 +1,5 @@
 /**
- * call sliders
+ * Custom jQueries
  */
 jQuery(document).ready(function($) { 
 	
@@ -99,4 +99,17 @@ jQuery(document).ready(function($) {
 	}
 	jQuery(document).ready(function(){mobileToggleMenu();});
 	jQuery(window).resize(function(){mobileToggleMenu();});
+	
+	// News posts ajax pagination
+	jQuery('.rtp-news-container').on('click', '#pagination a', function(e){
+        e.preventDefault();
+        var link = jQuery(this).attr('href');
+		jQuery('.rtp-news-container').html('Loading...');
+        jQuery('.rtp-news-container').fadeOut(500, function(){
+            jQuery(this).load(link + ' .rtp-news-container', function() {
+                jQuery(this).fadeIn(500);
+            });
+        });
+    });
+	
 });
