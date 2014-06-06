@@ -152,11 +152,13 @@ add_shortcode('rt-portfolio', 'rtp_shortcode_portfolio');
 
 function rtp_shortcode_news($atts, $content = null)
 {
+	wp_reset_query();
+	wp_reset_postdata();
 	extract(shortcode_atts(array(
 		'posts_per_page' => '6',
 		'category' => '',
 		'link_text' => 'More News',
-		'link_url' => ''
+		'link_url' => '#'
 	) , $atts));
 	$output = '';
 	$args = array(
@@ -187,40 +189,49 @@ function rtp_shortcode_news($atts, $content = null)
 		$output.= '<p>' . _x('Apologies, but no results were found. ', 'rtPanel') . '</p>';
 		$output.= '</div>';
 	}
-
-	global $wp_query;
-	$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-	$temp = $wp_query;
-	$wp_query = null;
+	
+	wp_reset_query();
+	wp_reset_postdata();
+	global $new_query;		
+	$temp = $new_query;
+	$new_query= null;
+	$new_query = new WP_Query();
 	$args = array(
 		'category_name' => 'news',
 		'posts_per_page' => $posts_per_page,
 		'order' => 'DESC',
-		'post__not_in' => get_option("sticky_posts") ,
-		'paged' => $paged
+		'post__not_in' => get_option("sticky_posts"),
+		'paged' => get_paged()
 	);
-	$wp_query = new WP_Query($args);
-	if ($wp_query->have_posts()) {
+	$new_query->query($args);
+	if ($new_query->have_posts()) {
 		$output.= '<section class="rtp-news-container">';
-		$output.= '<ul class="news links">';
-		$i = 1;
-		while ($wp_query->have_posts()):
-			$wp_query->the_post();
-			$output.= '<li class="single-news list">';
-			$output.= '<a href="' . get_permalink() . '">' . get_the_title() . '</a>';
-			$output.= '</li>';
-			$i++;
-		endwhile;
-		$output . '</ul>';
-		wp_reset_query();
-		wp_reset_postdata();
-		$output.= '<div class="news-pagination">';
-		$output.= '<span class="nav-previous">' . get_previous_posts_link('&laquo; Previous') . '</span>';
-		$output.= '<span class="nav-next">' . get_next_posts_link('Next &raquo;') . '</span>';
-		$output.= '</div>';
-		$output.= '<div class="read-more">';
-		$output.= '<a href="' . $link_url . '">' . $link_text . '</a>';
-		$output.= '</div>';
+			$output.= '<ul class="news links">';
+			$i = 1;
+			while ($new_query->have_posts()):
+				$new_query->the_post();
+				$output.= '<li class="single-news list">';
+				$output.= '<a href="' . get_permalink() . '">' . get_the_title() . '</a>';
+				$output.= '</li>';
+				$i++;
+			endwhile;
+			$output .= '</ul>';
+		
+			$output.= '<div class="news-pagination-container">';
+			
+				// Ajax pagination
+				$output.= '<div id="pagination" class="news-pagination">';
+				$output.= '<div class="next-post">'.get_next_posts_link('Older Entries', $new_query->max_num_pages).'</div>';
+				$output.= '<div class="prev-post">'.get_previous_posts_link('Newer Entries').'</div>';
+				$output.= '</div>';
+				$new_query = $temp;
+				$new_query= null;
+				
+				// Read More posts link	
+				$output.= '<div class="read-more">';
+				$output.= '<a href="' . $link_url . '">' . $link_text . '</a>';
+				$output.= '</div>';			
+			$output.= '</div>';			
 		$output.= '</section>';
 	}
 	else {
@@ -228,7 +239,6 @@ function rtp_shortcode_news($atts, $content = null)
 		$output.= '<p>' . _x('Apologies, but no results were found. ', 'rtPanel') . '</p>';
 		$output.= '</div>';
 	}
-
 	return $output;
 }
 
@@ -308,7 +318,7 @@ function rtp_shortcode_youtube_links($atts, $content = null)
 		$video_id = $link_vars['v'];
 		$src = "http://img.youtube.com/vi/" . $video_id . "/0.jpg";
 		$output.= '<div class="youtube-link item">';
-		$output.= '<a href="http://www.youtube.com/embed/' . $video_id . '" rel="youtube-links" class="thickbox">';
+		$output.= '<a href="//www.youtube.com/embed/' . $video_id . '?rel=0?KeepThis=true&TB_iframe=true&height=400&width=600" rel="youtube-links" class="thickbox">';
 		$output.= '<img width="170" height="110" src="' . $src . '" alt=""/>';
 		$output.= '<div class="hover-links"><div class="hover-youtube-icon-div"></div></div>';
 		$output.= '<div class="other-box">';
